@@ -48,6 +48,7 @@ void UWeaponHolderComponent::HideActiveWeapon()
 	GetActiveWeapon().SetActorHiddenInGame(true);
 	GetActiveWeapon().SK_Weapon->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	GetActiveWeapon().SK_Weapon->SetSimulatePhysics(false);
+	GetActiveWeapon().DetachFromActor(FDetachmentTransformRules::KeepRelativeTransform);
 	GetActiveWeapon().AttachToActor(OwnerCharacter, FAttachmentTransformRules::SnapToTargetIncludingScale);
 	GetActiveWeapon().SetActorTransform(OwnerCharacter->GetBackWeaponTransform());
 }
